@@ -51,7 +51,8 @@ const routes: Routes = [
         component: UsersListComponent,
       },
     ]
-  }
+  },
+  { path: 'timer', loadChildren: 'app/timer/timer.module#TimerModule' }
 ];
 
 @NgModule({
