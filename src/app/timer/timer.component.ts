@@ -2,7 +2,6 @@ import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
 import { MdButtonModule } from '@angular/material';
 
 @Component({
-  selector: 'app-timer',
   templateUrl: './timer.component.html',
   styleUrls: ['./timer.component.css']
 })

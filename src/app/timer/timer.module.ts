@@ -1,13 +1,10 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { TimerRoutingModule } from "./timer-routing.module";
-import { CdkTableModule } from '@angular/cdk';
-
-import 'hammerjs';
+import { MdSliderModule } from '@angular/material';
 
 import { MaterialModule } from '@angular/material';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { TimerComponent } from './timer.component';
 
@@ -16,12 +13,13 @@ import { TimerComponent } from './timer.component';
         TimerComponent,
     ],
     imports: [
-        BrowserModule,
+        CommonModule,
         FormsModule,
-        MaterialModule,
         TimerRoutingModule,
-        BrowserAnimationsModule,
-        CdkTableModule
+        MdSliderModule,
+        MaterialModule,
+        
     ],
 })
+
 export class TimerModule { }
