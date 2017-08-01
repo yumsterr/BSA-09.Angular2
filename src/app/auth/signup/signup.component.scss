@@ -1,0 +1,43 @@
+.signup-form {
+    width: 350px;
+    margin: 100px auto;
+    .form-input {
+        width: 100%;
+        position: relative;
+        margin-bottom: 10px;
+        .mat-input-placeholder {
+            color: #00B8D4!important;
+        }
+        .error {
+            position: absolute;
+            top: 5px;
+            right: -170px;
+            color: #EF5350;
+            a {
+                cursor: pointer;
+            }
+        }
+    }
+    .btn-signup {
+        margin: 15px auto 30px;
+        background-color: #00B8D4;
+        color: #fff;
+        width: 100px;
+        display: flex;
+        justify-content: center;
+    }
+    .control-buttons {
+        display: flex;
+        justify-content: space-between;
+        button {
+            width: 140px;
+            color: #fff;
+        }
+        .btn-login {
+            background-color: #66BB6A;
+        }
+        .btn-forgot {
+            background-color: #FF7043;
+        }
+    }
+}

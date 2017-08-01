@@ -1,0 +1,40 @@
+<div class="forgot-form">
+  <h1>Password assistance</h1>
+  <form [formGroup]="forgotFormGroup" (ngSubmit)="forgot()">
+    <md-input-container class="form-input">
+      <input mdInput placeholder="Email" [(ngModel)]="userEmail" formControlName="email">
+      <md-error *ngIf="forgotFormGroup.controls.email.hasError('pattern')">
+        Please enter a valid email address
+      </md-error>
+      <md-error *ngIf="forgotFormGroup.controls.email.hasError('required')">
+        Email is <strong>required</strong>
+      </md-error>
+
+    </md-input-container>
+    <div class="error" *ngIf="forgotFailed">
+      Email not found
+    </div>
+    <div class="validation" *ngIf="validationShow">
+      <span>Answer the question:</span>
+      <div class="question">
+        {{validation.expression}}
+      </div>
+      <md-input-container class="form-input">
+        <input mdInput [(ngModel)]="validateConfirm" formControlName="validateConfirm">
+        <md-error>This field is required</md-error>
+      </md-input-container>
+      <span class="error" *ngIf="val">Wrong!</span>
+      
+    </div>
+
+    <button md-raised-button class="btn-forgot" type="submit">Continue</button>
+
+    <div class="control-buttons">
+      <button md-raised-button class="btn-signup" type="button" (click)="signupRoute()">Sign up</button>
+      <button md-raised-button class="btn-login" type="button" (click)="loginRoute()">Login</button>
+    </div>
+  </form>
+
+  <router-outlet></router-outlet>
+
+</div>

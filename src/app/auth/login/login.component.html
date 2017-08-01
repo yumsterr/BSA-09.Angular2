@@ -1,0 +1,34 @@
+<div class="login-form">
+  <h1>Login!</h1>
+  <form [formGroup]="loginFormGroup" (ngSubmit)="login()">
+    <md-input-container class="form-input">
+      <input mdInput placeholder="Email" [(ngModel)]="userEmail" formControlName="email">
+      <md-error *ngIf="loginFormGroup.controls.email.hasError('pattern')">
+        Please enter a valid email address
+      </md-error>
+      <md-error *ngIf="loginFormGroup.controls.email.hasError('required')">
+        Email is <strong>required</strong>
+      </md-error>
+
+    </md-input-container>
+
+    <md-input-container class="form-input">
+      <input mdInput [(ngModel)]="userPass" placeholder="Password" formControlName="password" type="password">
+      <md-error *ngIf="loginFormGroup.controls.password.hasError('minlength')">
+        Passwords must be <strong>at least 3 characters</strong> in length
+      </md-error>
+      <md-error *ngIf="loginFormGroup.controls.password.hasError('required')">
+        Password is <strong>required</strong>
+      </md-error>
+    </md-input-container>
+    <div class="error" *ngIf="authFailed">
+      Auth failed, try again
+    </div>
+    <button md-raised-button class="btn-login" type="submit">Login!</button>
+
+    <div class="control-buttons">
+      <button md-raised-button class="btn-signup" type="button" (click)="signupRoute()">Sign up</button>
+      <button md-raised-button class="btn-forgot" type="button" (click)="forgotRoute()">Forgot pass :(</button>
+    </div>
+  </form>
+</div>

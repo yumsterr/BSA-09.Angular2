@@ -1,0 +1,33 @@
+<div class="edit-profile">
+  <form [formGroup]="editFormGroup" (ngSubmit)="saveUser()">
+    <md-input-container class="form-input">
+      <input mdInput [(ngModel)]="userInfo.firstName" placeholder="Name" formControlName="firstName">
+    </md-input-container>
+
+    <md-input-container class="form-input">
+      <input mdInput [(ngModel)]="userInfo.lastName" placeholder="Last name" formControlName="lastName">
+    </md-input-container>
+
+    <md-input-container class="form-input">
+      <input mdInput [(ngModel)]="userInfo.email"  placeholder="Email" formControlName="email">
+    </md-input-container>
+
+    <md-input-container class="form-input">
+      <input mdInput placeholder="Password"  [(ngModel)]="userInfo.password" formControlName="password" type="password">
+      <md-error *ngIf="editFormGroup.controls.password.hasError('minlength')">
+        Passwords must be <strong>at least 3 characters</strong> in length
+      </md-error>
+      <md-error *ngIf="editFormGroup.controls.password.hasError('required')">
+        Password is <strong>required</strong>
+      </md-error>
+    </md-input-container>
+
+    <md-input-container class="form-input">
+      <input mdInput [mdDatepicker]="picker" [max]="maxDate"  [(ngModel)]="userInfo.birthday" formControlName="birthday" placeholder="Choose a date">
+      <button mdSuffix [mdDatepickerToggle]="picker"></button>
+    </md-input-container>
+    <md-datepicker #picker></md-datepicker>
+
+    <button md-raised-button class="btn-save" type="submit">Save</button>
+  </form>
+</div>

@@ -1,0 +1,31 @@
+<div class="users-table">
+  <md-input-container class="search-input">
+  <input mdInput placeholder="Search something" value="" ngChange="search()" [(ngModel)]="searchValue">
+  </md-input-container>
+  <div class="row-head">
+    <div class="col" (click)="sort('id')"> ID
+      <md-icon *ngIf="currentSortField==='id'" [ngClass]="currentSortDirection">expand_more</md-icon>
+    </div>
+    <div class="col" (click)="sort('firstName')"> First Name
+      <md-icon *ngIf="currentSortField==='firstName'" [ngClass]="currentSortDirection">expand_more</md-icon>
+    </div>
+    <div class="col" (click)="sort('lastName')"> Last Name
+      <md-icon *ngIf="currentSortField==='lastName'" [ngClass]="currentSortDirection">expand_more</md-icon>
+    </div>
+    <div class="col" (click)="sort('email')"> Email
+      <md-icon *ngIf="currentSortField==='email'" [ngClass]="currentSortDirection">expand_more</md-icon>
+    </div>
+    <div class="col" (click)="sort('birthday')"> Birthday
+      <md-icon *ngIf="currentSortField==='birthday'" [ngClass]="currentSortDirection">expand_more</md-icon>
+    </div>
+  </div>
+  <div *ngFor='let item of (allUsers | searchUsers: searchValue);'>
+    <div class="user-item">
+      <div>{{item.id}}</div>
+      <div>{{item.firstName}}</div>
+      <div>{{item.lastName}}</div>
+      <div>{{item.email}}</div>
+      <div>{{item.birthday | date: 'longDate'}}</div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+.header {
+    height: 70px;
+    width: 100%;
+    display: flex;
+    background-color: #80CBC4;
+    position: relative;
+    .menu {
+        height: 100%;
+        display: flex;
+        color: #fff;
+        button {
+            font-size: 18px;
+        }
+    }
+    .logout {
+        position: absolute;
+        right: 0;
+        top: 10px;
+        background-color: transparent;
+        border: none;
+        float: right;
+        cursor: pointer;
+        .logout-icon {
+            height: 40px;
+            width: 40px;
+            color: #fff;
+            font-size: 40px;
+        }
+    }
+}

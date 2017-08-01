@@ -1,0 +1,29 @@
+.edit-profile {
+    width: 350px;
+    margin: 100px auto;
+    .form-input {
+        width: 100%;
+        position: relative;
+        margin-bottom: 10px;
+        .mat-input-placeholder {
+            color: #00B8D4!important;
+        }
+        .error {
+            position: absolute;
+            top: 5px;
+            right: -170px;
+            color: #EF5350;
+            a {
+                cursor: pointer;
+            }
+        }
+    }
+    .btn-save {
+        margin: 15px auto 30px;
+        background-color: #80CBC4;
+        color: #fff;
+        width: 100px;
+        display: flex;
+        justify-content: center;
+    }
+}

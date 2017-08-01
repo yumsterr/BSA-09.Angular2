@@ -1,0 +1,11 @@
+<div class="header">
+  <div class="menu">
+    <button md-button routerLink="/account" routerLinkActive="active">Edit profile</button>
+    <button md-button routerLink="/account/users" routerLinkActive="active">All users</button>
+    <button md-button>Timer??</button>
+  </div>
+  <button class="logout" (click)="logout()">
+    <md-icon class="logout-icon">exit_to_app</md-icon>
+  </button>
+</div>
+<router-outlet></router-outlet>

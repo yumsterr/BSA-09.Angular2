@@ -1,0 +1,50 @@
+<div class="signup-form">
+  <h1>No time to explain! Sign up!</h1>
+  <form [formGroup]="signupFormGroup" (ngSubmit)="saveUser()">
+    <md-input-container class="form-input">
+      <input mdInput [(ngModel)]="userName" placeholder="Name" formControlName="firstName">
+    </md-input-container>
+
+    <md-input-container class="form-input">
+      <input mdInput [(ngModel)]="userLastName" placeholder="Last name" formControlName="lastName">
+    </md-input-container>
+
+    <md-input-container class="form-input">
+      <input mdInput placeholder="Email" [(ngModel)]="userEmail" formControlName="email">
+      <md-error *ngIf="signupFormGroup.controls.email.hasError('pattern')">
+        Please enter a valid email address
+      </md-error>
+      <md-error *ngIf="signupFormGroup.controls.email.hasError('required')">
+        Email is <strong>required</strong>
+      </md-error>
+      <div class="error" *ngIf="userExist">
+        User exist, try to <a (click)="loginRoute()">login</a>
+      </div>
+    </md-input-container>
+
+    <md-input-container class="form-input">
+      <input mdInput [(ngModel)]="userPass" placeholder="Password" formControlName="password" type="password">
+      <md-error *ngIf="signupFormGroup.controls.password.hasError('minlength')">
+        Passwords must be <strong>at least 3 characters</strong> in length
+      </md-error>
+      <md-error *ngIf="signupFormGroup.controls.password.hasError('required')">
+        Password is <strong>required</strong>
+      </md-error>
+    </md-input-container>
+
+    <md-input-container class="form-input">
+      <input mdInput [mdDatepicker]="picker" [(ngModel)]="userBDay" [max]="maxDate" formControlName="birthday" placeholder="Choose a date">
+      <button mdSuffix [mdDatepickerToggle]="picker"></button>
+    </md-input-container>
+    <md-datepicker #picker></md-datepicker>
+
+    <button md-raised-button class="btn-signup" type="submit">Sign up!</button>
+
+    <div class="control-buttons">
+      <button md-raised-button class="btn-login" type="button" (click)="loginRoute()">Login</button>
+      <button md-raised-button class="btn-forgot" type="button" (click)="forgotRoute()">Forgot pass :(</button>
+    </div>
+
+  </form>
+</div>
+
