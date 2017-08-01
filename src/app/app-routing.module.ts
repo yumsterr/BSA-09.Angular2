@@ -1,3 +1,4 @@
+import { AccountPermissionGuard } from './guards/account-permission.guard';
 import { RootComponent } from './root/root.component';
 import { AuthGuard } from './guards/auth.guard';
 import { UsersListComponent } from './cabinet/users-list/users-list.component';
@@ -41,6 +42,7 @@ const routes: Routes = [
   {
     path: 'account',
     component: ProfileComponent,
+    canActivate: [AccountPermissionGuard],
     children:[
       {
         path: '',
